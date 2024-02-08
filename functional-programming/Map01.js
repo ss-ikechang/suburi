@@ -1,6 +1,6 @@
 // 要素を足し算する処理をコールバック関数で定義
 const plus = function(accumulator, currentValue, currentIndex, array) {
-    console.log("●途中計算結果：" + accumulator + ", 現在の値：" + currentValue + ", インデックス：" + currentIndex);
+    console.log("●途中計算結果：" + accumulator + ", 現在の値：" + currentValue + ", インデックス：" + currentIndex + ", 配列：" + array);
     return accumulator + currentValue;
 };
 
