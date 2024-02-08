@@ -26,7 +26,7 @@ class MyNumberArray {
                 retArray.push(this.numberArray[i]);
             }
         }
-        return retArray;
+        return new MyNumberArray(retArray);
     }    
 }
 
@@ -46,7 +46,12 @@ const plus = function(accumulator, currentValue, currentIndex, array) {
     return accumulator + currentValue;
 };
 
-const number = new MyNumberArray([0, 1, 2, 3, 4, 5, 6, 7, 8, 9],);
+const vanillaNumber = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+console.log("vanillaNumber = " + vanillaNumber);
+
+const number = new MyNumberArray([0, 1, 2, 3, 4, 5, 6, 7, 8, 9]);
+console.log("number = " + number);
+
 const sum = number.reduce(plus, 0);
 console.log("sum = " + sum);
 
