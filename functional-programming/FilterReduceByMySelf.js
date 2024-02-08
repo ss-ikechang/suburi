@@ -27,7 +27,12 @@ class MyNumberArray {
             }
         }
         return new MyNumberArray(retArray);
-    }    
+    }   
+    
+    // 文字列表現を返す
+    toString = function() {
+        return this.numberArray.toString();
+    }
 }
 
 // 要素の偶数判定処理をコールバック関数で定義
