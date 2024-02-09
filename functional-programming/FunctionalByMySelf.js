@@ -28,6 +28,15 @@ class MyNumberArray {
         }
         return new MyNumberArray(retArray);
     }   
+
+    // map関数を自分で実装
+    map = function(callbackFn) {
+        let retArray = [];
+        for (let i = 0; i < this.numberArray.length; i++) {
+            retArray.push(callbackFn(this.numberArray[i], i, this.numberArray));
+        }
+        return new MyNumberArray(retArray);
+    }   
     
     // 文字列表現を返す
     toString = function() {
@@ -51,6 +60,12 @@ const plus = function(accumulator, currentValue, currentIndex, array) {
     return accumulator + currentValue;
 };
 
+// 要素事情計算する処理をコールバック関数で定義
+const power2 = function(element, index, array)  {
+    console.log("現在の値：" + element + ", インデックス：" + index + ", 配列：" + array);     
+    return element * element;
+};
+
 const vanillaNumber = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 console.log("vanillaNumber = " + vanillaNumber);
 
@@ -65,3 +80,9 @@ console.log('even = ' + even);
 
 const evenSum = number.filter(isEven).reduce(plus, 0);
 console.log("evenSum = " + evenSum);
+
+const powers = number.map(power2);
+console.log('powers = ' + powers);
+
+const powersSum = number.map(power2).reduce(plus, 0);
+console.log('powersSum = ' + powersSum);
