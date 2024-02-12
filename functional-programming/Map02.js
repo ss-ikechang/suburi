@@ -8,5 +8,4 @@ function main() {
         console.log('numbers = ' + numbers);
     }
 }
-
 main();

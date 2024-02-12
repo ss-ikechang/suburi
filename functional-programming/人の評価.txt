@@ -1,0 +1,95 @@
+ss_ikechang(O_T_MagellanV_) — 今日 00:31
+今日学んだこと
+今日もpaiza解いたりJavaScriptの文法確認のプログラム買いたり。
+目に見える成果がなかなか出ません。
+こんなプログラムが出来てしまったのでコードを共有します。
+function main() {
+    for (let x = 1; x <= 10; x++) {
+        // Functions declared within loops referencing an outer scoped variable may lead to confusing semantics. (x)
+        const multiplyX = function(num) {
+            return num * x;
+        }
+        const numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map(multiplyX);
+        console.log('numbers = ' + numbers);
+    }
+}
+main();
+
+「x」のスコープに気をつけてください。
+これって公式に認められた書き方なんでしょうか？？
+強力な書き方ですが、さすがにちょっと気持ちが悪いです。
+kazzyfrog（hond） — 今日 01:07
+？？
+Aileen — 今日 04:52
+ChatGPTに入れてみたのですが、こんな感じで出てきました...
+
+このコードはJavaScriptでループの中で関数を定義し、その関数内でループ変数を参照しています。こうすることで、その時点でのループ変数の値（x）を用いて、配列の各要素を乗算します。そして、その結果をコンソールに出力します。このパターンはクロージャを使っており、JavaScriptでは一般的なテクニックです。
+
+クロージャは、関数とその関数が宣言されたレキシカルスコープの組み合わせです。このケースでは、multiplyX関数は各イテレーションのxの値を「記憶」します。そのため、multiplyXが呼ばれるたびに、その時のxの値で配列の数を乗算することができます。
+
+公式に認められた書き方という点については、JavaScriptの仕様ではこのような書き方が可能であり、有効なクロージャの使用例として認められています。しかし、「気持ちが悪い」と感じる理由は、ループの中で関数を定義しているため、パフォーマンス上の懸念や、コードの読みやすさに影響を与える可能性があるからかもしれません。
+
+このような書き方は、特に必要がない限りは避けるほうが良いかもしれません。特に大規模なアプリケーション開発では、メンテナンス性やパフォーマンスを考慮して、よりシンプルで読みやすいコードを心がけることが重要です。
+
+結果的には避けた方が良さそうな気もしますよね。
+昨日学んだこと
+paiza
+Cランク獲得 標準入力: 【半角スペース区切りの入力】半角スペース区切りの 1,000 個の入力
+Cランク獲得 標準入力: 【整数の行入力】1,000行の整数の入力
+Cランク獲得 標準入力: 【整数の半角スペース区切りの入力】1,000個の整数の半角スペース区切りの入力
+昨日は体調が悪く上記のみ。do whileなどの基本的なループを復習しました。
+ss_ikechang(O_T_MagellanV_) — 今日 06:14
+すごいですねCHatGPT！
+有効なクロージャの使用例として認められています。
+クロージャーの勉強します！
+特に大規模なアプリケーション開発では、メンテナンス性やパフォーマンスを考慮して、よりシンプルで読みやすいコードを心がけることが重要です。
+なるほどこれも勉強になります。 
+kazzyfrog（hond） — 今日 06:14
+今日学んだこと
+現状Nextjsのapp routerでshallow routingは対応していない
+pagesではできる: https://nextjs-ja-translation-docs.vercel.app/docs/routing/shallow-routing
+shallow routingとは、現在表示しているページをリロード、再レンダリングせずにURLのみを変更すること。（これが意外と便利）
+これは、次の方法で解決できるっぽい
+「window.history.pushState()」を使用する: https://qiita.com/PianoScoreJP/items/fa66f357419fece0e531
+これに関しては、この記事でも解説されていた：https://francoisbest.com/posts/2023/storing-react-state-in-the-url-with-nextjs?hello=
+ 
+kazzyfrog（hond） — 今日 06:16
+multiplyXとnumbersの定義はループの外に出したほうがいいかもですね！
+その場で実行するなら、即時関数も使えそうです
+https://developer.mozilla.org/ja/docs/Glossary/IIFE
+function multiplyX(num, x) {
+    return num * x;
+}
+
+(function () {
+    const numbers = [];
+    for (let x = 1; x <= 10; x++) {
+        numbers.push(...[0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map(num => multiplyX(num, x)));
+    }
+    console.log('numbers = ' + numbers);
+})();
+ 
+ss_ikechang(O_T_MagellanV_) — 今日 06:24
+これも勉強になります！！
+kazzyfrog（hond） — 今日 06:35
+あ、でもこれだと、配列がループのたびにリセットされないので、出力結果が変わってしまうのか
+
+function multiplyByX(x) {
+  return function (num) {
+    return num * x;
+  };
+}
+
+(function () {
+  const numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+  for (let x = 1; x <= 10; x++) {
+    const multiplyX = multiplyByX(x);
+    const multipliedNumbers = numbers.map(multiplyX);
+    console.log("numbers = " + multipliedNumbers);
+  }
+})();
+ 
+ss_ikechang(O_T_MagellanV_) — 今日 07:07
+関数を生成する関数を定義するということですかね。
+なるほど。 
