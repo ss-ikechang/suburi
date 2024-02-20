@@ -1,3 +1,5 @@
+// https://github.com/freeCodeCamp/freeCodeCamp/blob/main/curriculum/challenges/japanese/02-javascript-algorithms-and-data-structures/functional-programming/refactor-global-variables-out-of-functions.md
+
 // グローバル変数
 const bookList = ["The Hound of the Baskervilles", "On The Electrodynamics of Moving Bodies", "Philosophiæ Naturalis Principia Mathematica", "Disquisitiones Arithmeticae"];
 
