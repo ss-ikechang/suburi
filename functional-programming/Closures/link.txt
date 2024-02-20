@@ -9,3 +9,9 @@ https://forum.freecodecamp.org/t/functions-declared-within-loops-referencing-an-
 javascript - forループ内の関数作成をＮＧにする理由 - スタック・オーバーフロー
 https://ja.stackoverflow.com/questions/2252/for%E3%83%AB%E3%83%BC%E3%83%97%E5%86%85%E3%81%AE%E9%96%A2%E6%95%B0%E4%BD%9C%E6%88%90%E3%82%92%EF%BC%AE%EF%BC%A7%E3%81%AB%E3%81%99%E3%82%8B%E7%90%86%E7%94%B1
 
+jshint のポリシーには共感出来ない | site-hhs
+https://hhsprings.pinoko.jp/site-hhs/2018/02/jshint-%E3%81%AE%E3%83%9D%E3%83%AA%E3%82%B7%E3%83%BC%E3%81%AB%E3%81%AF%E5%85%B1%E6%84%9F%E5%87%BA%E6%9D%A5%E3%81%AA%E3%81%84/
+
+ESLint - no-loop-func
+https://runebook.dev/ja/docs/eslint/rules/no-loop-func
+
