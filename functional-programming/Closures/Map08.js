@@ -2,6 +2,10 @@ const multiplyFunc = (a) => {
   return (b) => a * b;
 };
 
+const multiply3 = function (a, b) {
+  return a * b;
+};
+
 function addButtonListener1(x = 0) {
   const xArray = [1, 2, 3, 4, 5, 6, 7, 8, 9];
   const yArray = [1, 2, 3, 4, 5, 6, 7, 8, 9];
@@ -19,9 +23,6 @@ function addButtonListener1(x = 0) {
   //   }
   //   console.log(kukuArray9);
 
-  //   const kukuArray0 = yArray.map((y) => x * y);
-  //   console.log(kukuArray0);
-
   //   const multiply = (y) => x * y;
   //   const kukuArray1 = yArray.map(multiply);
   //   console.log(kukuArray1);
@@ -32,9 +33,9 @@ function addButtonListener1(x = 0) {
   const kukuArray11 = yArray.map(multiply2);
   console.log(kukuArray11);
 
-  const multiply3 = function (a, b) {
-    return a * b;
-  };
+  const kukuArray0 = yArray.map((y) => x * y);
+  console.log(kukuArray0);
+
   const kukuArray12 = yArray.map((y) => multiply3(x, y));
   console.log(kukuArray12);
 
